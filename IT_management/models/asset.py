@@ -1,10 +1,10 @@
-
 from odoo import models, fields
 
 class Asset(models.Model):
     _name = 'parc_informatique.asset'
     _description = 'Base Asset Model'
 
+    name = fields.Char(string='Asset Name', required=True)  # Add this line
     asset_id = fields.Char(string='Asset ID', required=True)
     model = fields.Char(string='Model')
     manufacturer = fields.Char(string='Manufacturer')
