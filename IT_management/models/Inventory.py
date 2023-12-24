@@ -6,7 +6,7 @@ class ITInventory(models.Model):
     _description = 'IT Inventory Model'
 
     name = fields.Char(string='Inventory Name', required=True)
-    assets = fields.One2many('parc_informatique.base_asset', 'inventory', string='Assets')
+    assets = fields.One2many('parc_informatique.asset', 'inventory', string='Assets')
     total_assets = fields.Integer(string='Total Assets', compute='_compute_total_assets', store=True)
     total_hardware = fields.Integer(string='Total Hardware', compute='_compute_total_assets', store=True)
     total_software = fields.Integer(string='Total Software', compute='_compute_total_assets', store=True)

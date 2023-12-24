@@ -1,6 +1,7 @@
 # software_model.py
 
 from odoo import models, fields
+from .asset import Asset  
 
 class Software(Asset):
     _name = 'parc_informatique.software'

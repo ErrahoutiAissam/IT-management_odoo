@@ -1,6 +1,8 @@
 # hardware_model.py
 
 from odoo import models, fields
+from .asset import Asset  
+
 
 class Hardware(Asset):
     _name = 'parc_informatique.hardware'
