@@ -19,7 +19,8 @@
                         <!-- Define the fields you want to display in the user form view -->
                         <field name="name"/>
                         <field name="department"/>
-                        <field name="contact_information"/>
+                        <field name="email"/>
+                        <field name="phone_number"/>
                         <!-- Add other user-specific fields to display -->
                         <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
                     </group>
@@ -35,7 +36,6 @@
                     <!-- Define the columns you want to display in the user tree view -->
                     <field name="name"/>
                     <field name="department"/>
-                    <field name="contact_information"/>
                 </tree>
             </field>
         </record>
