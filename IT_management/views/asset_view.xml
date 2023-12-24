@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id='parc_informatique_asset_action_form' model='ir.actions.act_window'>
+<field name="name">parc_informatique Asset</field> <field name="res_model">parc_informatique.asset</field>
+<field name="view_mode">tree</field>
+</record>
+
+<menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
+<menuitem name="asset" id="parc_informatique_asset_menu" parent="parc_informatique_main_menu" action="parc_informatique_asset_action_form"/> 
+
+    <data>
+        <record id="view_asset_form" model="ir.ui.view">
+            <field name="name">parc_informatique.asset.form</field>
+            <field name="model">parc_informatique.asset</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <!-- Define the fields you want to display in the form view -->
+                        <group>
+                            <field name="asset_id"/>
+                            <field name="model"/>
+                            <field name="manufacturer"/>
+                            <!-- Add other fields as needed -->
+                            <field name="current_user"/>
+                            <field name="location"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add other views for tree, kanban, etc. if needed -->
+    </data>
+</odoo>
