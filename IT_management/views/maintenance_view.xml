@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Maintenance Action Window -->
+    <record id='parc_informatique_maintenance_action_form' model='ir.actions.act_window'>
+        <field name="name">parc_informatique Maintenance</field>
+        <field name="res_model">parc_informatique.maintenance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Maintenance Menu Items -->
+    <menuitem name="maintenance" id="parc_informatique_maintenance_menu" parent="parc_informatique_main_menu" action="parc_informatique_maintenance_action_form"/>
+
+    <data>
+        <!-- Maintenance Form View -->
+        <record id="view_maintenance_form" model="ir.ui.view">
+            <field name="name">parc_informatique.maintenance.form</field>
+            <field name="model">parc_informatique.maintenance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- Define the fields you want to display in the maintenance form view -->
+                        <field name="maintenance_date"/>
+                        <field name="maintenance_type"/>
+                        <field name="description"/>
+                        <field name="cost"/>
+                        <field name="asset_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Maintenance Tree View -->
+        <record id="view_maintenance_tree" model="ir.ui.view">
+            <field name="name">parc_informatique.maintenance.tree</field>
+            <field name="model">parc_informatique.maintenance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Define the columns you want to display in the maintenance tree view -->
+                    <field name="maintenance_date"/>
+                    <field name="maintenance_type"/>
+                    <field name="description"/>
+                    <field name="cost"/>
+                    <field name="asset_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

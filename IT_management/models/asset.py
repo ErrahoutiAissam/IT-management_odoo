@@ -7,6 +7,7 @@ class Asset(models.Model):
     name = fields.Char(string='Asset Name', required=True)
     asset_id = fields.Char(string='Asset ID', required=True)
     model = fields.Char(string='Model')
+    image = fields.Binary(string='Image', attachment=True, help="Select image here", widget='image')
     manufacturer = fields.Char(string='Manufacturer')
     purchase_date = fields.Date(string='Purchase Date')
     warranty_information = fields.Char(string='Warranty Information')

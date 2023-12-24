@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Software Action Window -->
+    <record id='parc_informatique_software_action_form' model='ir.actions.act_window'>
+        <field name="name">parc_informatique Software</field>
+        <field name="res_model">parc_informatique.software</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Software Menu Items -->
+    <menuitem name="software" id="parc_informatique_software_menu" parent="parc_informatique_main_menu" action="parc_informatique_software_action_form"/>
+
+    <data>
+        <!-- Software Form View -->
+        <record id="view_software_form" model="ir.ui.view">
+            <field name="name">parc_informatique.software.form</field>
+            <field name="model">parc_informatique.software</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- Define the fields you want to display in the software form view -->
+                        <field name="name"/>
+                        <field name="version"/>
+                        <field name="license_key"/>
+                        <field name="install_date"/>
+                        <field name="software_type"/>
+                        <field name="additional_software_info"/>
+                        <!-- Add other software-specific fields to display -->
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Software Tree View -->
+        <record id="view_software_tree" model="ir.ui.view">
+            <field name="name">parc_informatique.software.tree</field>
+            <field name="model">parc_informatique.software</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Define the columns you want to display in the software tree view -->
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="license_key"/>
+                    <field name="install_date"/>
+                    <field name="software_type"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -16,3 +16,4 @@ class Software(Asset):
         ('antivirus', 'Antivirus'),
     ], string='Software Type')
     additional_software_info = fields.Text(string='Additional Software Information')
+    install_date = fields.Date(string='Install Date')
