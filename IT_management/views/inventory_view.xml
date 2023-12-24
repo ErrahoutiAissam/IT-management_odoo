@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inventory Action Window -->
+    <record id='parc_informatique_inventory_action_form' model='ir.actions.act_window'>
+        <field name="name">parc_informatique Inventory</field>
+        <field name="res_model">parc_informatique.inventory</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
+    </record>
+
+    <!-- Inventory Menu Items -->
+    <menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
+    <menuitem name="inventory" id="parc_informatique_inventory_menu" parent="parc_informatique_main_menu" action="parc_informatique_inventory_action_form"/>
+
+    <data>
+        <!-- Inventory Form View -->
+        <record id="view_inventory_form" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.form</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- Define the fields you want to display in the inventory form view -->
+                        <field name="name"/>
+                        <field name="total_assets"/>
+                        <field name="total_hardware"/>
+                        <field name="total_software"/>
+                        <!-- Add other inventory-specific fields to display -->
+                        <field name="assets" widget="many2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Inventory Tree View -->
+        <record id="view_inventory_tree" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.tree</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Define the columns you want to display in the inventory tree view -->
+                    <field name="name"/>
+                    <field name="total_assets"/>
+                    <field name="total_hardware"/>
+                    <field name="total_software"/>
+                    <field name="assets" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Inventory Kanban View -->
+        <record id="view_inventory_kanban" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.kanban</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <!-- Define the kanban card content -->
+                    <field name="name"/>
+                    <field name="total_assets"/>
+                    <field name="total_hardware"/>
+                    <field name="total_software"/>
+                    <field name="assets" widget="many2many_tags"/>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Inventory Pivot View -->
+        <record id="view_inventory_pivot" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.pivot</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <!-- Add the pivot view definition here -->
+                <pivot>
+                    <!-- Define the pivot view content -->
+                    <field name="name"/>
+                    <field name="total_assets"/>
+                    <field name="total_hardware"/>
+                    <field name="total_software"/>
+                    <field name="assets" widget="many2many_tags"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Inventory Graph View -->
+        <record id="view_inventory_graph" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.graph</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <!-- Add the graph view definition here -->
+                <graph>
+                    <!-- Define the graph view content -->
+                    <field name="name"/>
+                    <field name="total_assets"/>
+                    <field name="total_hardware"/>
+                    <field name="total_software"/>
+                    <field name="assets" widget="many2many_tags"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Inventory Search View -->
+        <record id="view_inventory_search" model="ir.ui.view">
+            <field name="name">parc_informatique.inventory.search</field>
+            <field name="model">parc_informatique.inventory</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Define search criteria for inventory -->
+                    <field name="name"/>
+                    <field name="total_assets"/>
+                    <field name="total_hardware"/>
+                    <field name="total_software"/>
+                    <field name="assets"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
