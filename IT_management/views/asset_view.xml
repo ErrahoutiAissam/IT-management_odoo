@@ -1,73 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- User Action Window -->
-    <record id='parc_informatique_user_action_form' model='ir.actions.act_window'>
-        <field name="name">parc_informatique User</field>
-        <field name="res_model">parc_informatique.user</field>
-        <field name="view_mode">tree,form</field>
+    <record id="view_asset_form" model="ir.ui.view">
+        <field name="name">parc_informatique.asset.form</field>
+        <field name="model">parc_informatique.asset</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <!-- Define the fields you want to display in the asset form view -->
+                    <field name="name"/>
+                    <field name="asset_id"/>
+                    <field name="model"/>
+                    <field name="image"/>
+                    <field name="manufacturer"/>
+                    <field name="purchase_date"/>
+                    <field name="warranty_information"/>
+                    <field name="specifications"/>
+                    <field name="current_user"/>
+                    <field name="location"/>
+                    <field name="maintenance_history"/>
+                    <field name="inventory"/>
+                </group>
+            </form>
+        </field>
     </record>
 
-    <!-- User Menu Items -->
-    <menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
-    <menuitem name="user" id="parc_informatique_user_menu" parent="parc_informatique_main_menu" action="parc_informatique_user_action_form"/> 
-
-    <data>
-        <!-- User Form View -->
-        <record id="view_user_form" model="ir.ui.view">
-            <field name="name">parc_informatique.user.form</field>
-            <field name="model">parc_informatique.user</field>
-            <field name="arch" type="xml">
-                <form>
-                    <group>
-                        <!-- Define the fields you want to display in the user form view -->
-                        <field name="name"/>
-                        <field name="department"/>
-                        <field name="phone_number"/>
-                        <field name="email"/>
-                        <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
-                    </group>
-                </form>
-            </field>
-        </record>
-
-        <!-- User Tree View -->
-        <record id="view_user_tree" model="ir.ui.view">
-            <field name="name">parc_informatique.user.tree</field>
-            <field name="model">parc_informatique.user</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <!-- Define the columns you want to display in the user tree view -->
-                    <field name="name"/>
-                    <field name="department"/>
-                    <field name="phone_number"/>
-                    <field name="email"/>
-                </tree>
-            </field>
-        </record>
-
-        <!-- Asset Action Window -->
-        <record id='parc_informatique_asset_action_form' model='ir.actions.act_window'>
-            <field name="name">parc_informatique Asset</field>
-            <field name="res_model">parc_informatique.asset</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <!-- Asset Menu Items -->
-        <menuitem name="asset" id="parc_informatique_asset_menu" parent="parc_informatique_main_menu" action="parc_informatique_asset_action_form"/> 
-
-        <!-- Asset Tree View -->
-        <record id="view_asset_tree" model="ir.ui.view">
-            <field name="name">parc_informatique.asset.tree</field>
-            <field name="model">parc_informatique.asset</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="asset_id" string="Asset ID"/>
-                    <field name="name" string="Asset Name"/>
-                    <field name="current_user" string="Current User"/>
-                    <!-- Add other fields you want to display in the tree view -->
-                    <!-- Example: field name="new_field" string="New Field"/> -->
-                </tree>
-            </field>
-        </record>
-    </data>
+    <record id="view_asset_tree" model="ir.ui.view">
+        <field name="name">parc_informatique.asset.tree</field>
+        <field name="model">parc_informatique.asset</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Define the columns you want to display in the asset tree view -->
+                <field name="asset_id" string="Asset ID"/>
+                <field name="name" string="Asset Name"/>
+                <field name="current_user" string="Current User"/>
+                <!-- Add other fields you want to display in the tree view -->
+                <!-- Example: field name="new_field" string="New Field"/> -->
+            </tree>
+        </field>
+    </record>
 </odoo>
