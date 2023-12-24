@@ -12,3 +12,4 @@ class Hardware(Asset):
     graphics_card = fields.Char(string='Graphics Card')
     network_adapter = fields.Char(string='Network Adapter')
     additional_hardware_info = fields.Text(string='Additional Hardware Information')
+    
