@@ -11,6 +11,16 @@
     <menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
     <menuitem name="user" id="parc_informatique_user_menu" parent="parc_informatique_main_menu" action="parc_informatique_user_action_form"/> 
 
+    <!-- Hardware Action Window -->
+    <record id='parc_informatique_hardware_action_form' model='ir.actions.act_window'>
+        <field name="name">parc_informatique Hardware</field>
+        <field name="res_model">parc_informatique.hardware</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Hardware Menu Items -->
+    <menuitem name="hardware" id="parc_informatique_hardware_menu" parent="parc_informatique_main_menu" action="parc_informatique_hardware_action_form"/> 
+
     <data>
         <!-- User Form View -->
         <record id="view_user_form" model="ir.ui.view">
@@ -45,27 +55,39 @@
             </field>
         </record>
 
-        <!-- Asset Action Window -->
-        <record id='parc_informatique_asset_action_form' model='ir.actions.act_window'>
-            <field name="name">parc_informatique Asset</field>
-            <field name="res_model">parc_informatique.asset</field>
-            <field name="view_mode">tree,form</field>
+        <!-- Hardware Form View -->
+        <record id="view_hardware_form" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.form</field>
+            <field name="model">parc_informatique.hardware</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- Define the fields you want to display in the hardware form view -->
+                        <field name="name"/>
+                        <field name="processor_type"/>
+                        <field name="memory_size"/>
+                        <field name="storage_size"/>
+                        <field name="graphics_card"/>
+                        <field name="network_adapter"/>
+                        <field name="additional_hardware_info"/>
+                    </group>
+                </form>
+            </field>
         </record>
 
-        <!-- Asset Menu Items -->
-        <menuitem name="asset" id="parc_informatique_asset_menu" parent="parc_informatique_main_menu" action="parc_informatique_asset_action_form"/> 
-
-        <!-- Asset Tree View -->
-        <record id="view_asset_tree" model="ir.ui.view">
-            <field name="name">parc_informatique.asset.tree</field>
-            <field name="model">parc_informatique.asset</field>
+        <!-- Hardware Tree View -->
+        <record id="view_hardware_tree" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.tree</field>
+            <field name="model">parc_informatique.hardware</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="asset_id" string="Asset ID"/>
-                    <field name="name" string="Asset Name"/>
-                    <field name="current_user" string="Current User"/>
-                    <!-- Add other fields you want to display in the tree view -->
-                    <!-- Example: field name="new_field" string="New Field"/> -->
+                    <!-- Define the columns you want to display in the hardware tree view -->
+                    <field name="name"/>
+                    <field name="processor_type"/>
+                    <field name="memory_size"/>
+                    <field name="storage_size"/>
+                    <field name="graphics_card"/>
+                    <field name="network_adapter"/>
                 </tree>
             </field>
         </record>
