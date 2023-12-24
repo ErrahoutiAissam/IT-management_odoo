@@ -1,5 +1,3 @@
-# software_model.py
-
 from odoo import models, fields
 from .asset import Asset  
 
@@ -7,6 +5,7 @@ class Software(Asset):
     _name = 'parc_informatique.software'
     _description = 'Software Model'
 
+    asset_id = fields.Many2one('parc_informatique.asset', string='Asset', required=True, ondelete='restrict')
     license_key = fields.Char(string='License Key')
     version = fields.Char(string='Version')
     software_type = fields.Selection([
