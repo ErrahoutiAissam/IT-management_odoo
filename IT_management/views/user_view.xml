@@ -3,42 +3,30 @@
     <record id='parc_informatique_user_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique User</field>
         <field name="res_model">parc_informatique.user</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">form</field>
     </record>
 
     <menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
     <menuitem name="user" id="parc_informatique_user_menu" parent="parc_informatique_main_menu" action="parc_informatique_user_action_form"/> 
 
     <data>
-        <record id="view_user_form" model="ir.ui.view">
-            <field name="name">parc_informatique.user.form</field>
-            <field name="model">parc_informatique.user</field>
-            <field name="arch" type="xml">
-                <form>
-                    <group>
-                        <!-- Define the fields you want to display in the user form view -->
-                        <field name="name"/>
-                        <field name="department"/>
-                        <field name="phone_number"/>
-                        <field name="email"/>
-                        <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
-                    </group>
-                </form>
-            </field>
-        </record>
+<record id="view_user_form" model="ir.ui.view">
+    <field name="name">parc_informatique.user.form</field>
+    <field name="model">parc_informatique.user</field>
+    <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="company_id" invisible="1"/>
+                <field name="department_id"/> 
+                <field name="name" widget="many2one" options="{'no_create_edit': True}" domain="[('department_id', '=', department_id)]"/>                                <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
+            </group>
+        </form>
+    </field>
+</record>
 
-        <record id="view_user_tree" model="ir.ui.view">
-            <field name="name">parc_informatique.user.tree</field>
-            <field name="model">parc_informatique.user</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <!-- Define the columns you want to display in the user tree view -->
-                    <field name="name"/>
-                    <field name="department"/>
-                    <field name="phone_number"/>
-                    <field name="email"/>
-                </tree>
-            </field>
-        </record>
+
+
+
+    
     </data>
 </odoo>

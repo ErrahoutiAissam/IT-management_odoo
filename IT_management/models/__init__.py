@@ -1,5 +1,4 @@
 from . import asset
-from . import departement
 from . import hardware
 from . import Inventory
 from . import maintenance
