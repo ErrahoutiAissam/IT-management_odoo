@@ -35,7 +35,7 @@
                 <form>
                     <group>
                         <field name="asset_id" options="{'no_create_edit': True}" widget="many2one"/> 
-                        <!-- <field name="name"/> -->
+                        <field name="name"/>
                         <field name="processor_type"/>
                         <field name="memory_size"/>
                         <field name="storage_size"/>

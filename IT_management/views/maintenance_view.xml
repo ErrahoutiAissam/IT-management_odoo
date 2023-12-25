@@ -12,7 +12,7 @@
 
     <data>
         <!-- Maintenance Form View -->
-          <record id="parc_informatique_maintenance_menu" model="ir.ui.menu">
+        <record id="parc_informatique_maintenance_menu" model="ir.ui.menu">
             <field name="name">Maintenance</field>
             <field name="parent_id" ref="parc_informatique_main_menu" />
             <field name="action" ref="parc_informatique_maintenance_action_form" />
@@ -26,7 +26,7 @@
                     <group>
                         <!-- Define the fields you want to display in the maintenance form view -->
                         <field name="maintenance_date"/>
-                        <field name="maintenance_type"/>
+                        <field name="maintenance_type" options="{'no_create_edit': True}"/>
                         <field name="description"/>
                         <field name="cost"/>
                         <field name="asset_id"/>
