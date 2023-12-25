@@ -15,5 +15,5 @@ class ITInventory(models.Model):
     def _compute_total_assets(self):
         for inventory in self:
             inventory.total_assets = len(inventory.assets)
-            inventory.total_hardware = len(inventory.assets.filtered(lambda a: a._name == 'parc_informatique.hardware'))
-            inventory.total_software = len(inventory.assets.filtered(lambda a: a._name == 'parc_informatique.software'))
+            # inventory.total_hardware = len(inventory.assets.filtered(lambda a: a._name == 'parc_informatique.hardware'))
+            # inventory.total_software = len(inventory.assets.filtered(lambda a: a._name == 'parc_informatique.software'))

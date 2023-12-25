@@ -4,7 +4,7 @@
     <record id='parc_informatique_asset_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique Asset</field>
         <field name="res_model">parc_informatique.asset</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot,graph,search</field>
     </record>
 
     <!-- Asset Menu Items -->
@@ -32,7 +32,6 @@
                         <field name="warranty_information"/>
                         <field name="specifications"/>
                         <field name="current_user"/>
-                        <field name="location"/>
                         <field name="maintenance_history"/>
                         <field name="inventory"/>
                     </group>
@@ -51,6 +50,60 @@
                     <field name="name" string="Asset Name"/>
                     <field name="current_user" string="Current User"/>
                 </tree>
+            </field>
+        </record>
+
+      
+        <!-- Asset Pivot View -->
+        <record id="view_asset_pivot" model="ir.ui.view">
+            <field name="name">parc_informatique.asset.pivot</field>
+            <field name="model">parc_informatique.asset</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <!-- Define the pivot view content -->
+                    <field name="asset_id"/>
+                    <field name="current_user"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Asset Graph View -->
+        <record id="view_asset_graph" model="ir.ui.view">
+            <field name="name">parc_informatique.asset.graph</field>
+            <field name="model">parc_informatique.asset</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <!-- Define the graph view content -->
+                    <field name="asset_id"/>
+                    <field name="current_user"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Asset Calendar View -->
+        <record id="view_asset_calendar" model="ir.ui.view">
+            <field name="name">parc_informatique.asset.calendar</field>
+            <field name="model">parc_informatique.asset</field>
+            <field name="arch" type="xml">
+                <calendar>
+                    <!-- Define the calendar view content -->
+                    <field name="asset_id"/>
+                    <field name="current_user"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Asset Search View -->
+        <record id="view_asset_search" model="ir.ui.view">
+            <field name="name">parc_informatique.asset.search</field>
+            <field name="model">parc_informatique.asset</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Define search criteria for assets -->
+                    <field name="asset_id"/>
+                    <field name="name"/>
+                    <field name="current_user"/>
+                </search>
             </field>
         </record>
     </data>

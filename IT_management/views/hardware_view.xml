@@ -4,7 +4,7 @@
     <record id='parc_informatique_user_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique User</field>
         <field name="res_model">parc_informatique.user</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot,graph,search</field>
     </record>
 
     <!-- User Menu Items -->
@@ -15,7 +15,7 @@
     <record id='parc_informatique_hardware_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique Hardware</field>
         <field name="res_model">parc_informatique.hardware</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot,graph,search</field>
     </record>
 
     <!-- Hardware Menu Items -->
@@ -47,7 +47,6 @@
             </field>
         </record>
 
-
         <!-- Hardware Tree View -->
         <record id="view_hardware_tree" model="ir.ui.view">
             <field name="name">parc_informatique.hardware.tree</field>
@@ -62,6 +61,60 @@
                     <field name="graphics_card"/>
                     <field name="network_adapter"/>
                 </tree>
+            </field>
+        </record>
+
+        <!-- Hardware Kanban View -->
+      
+
+        <!-- Hardware Pivot View -->
+        <record id="view_hardware_pivot" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.pivot</field>
+            <field name="model">parc_informatique.hardware</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <!-- Define the pivot view content -->
+                    <field name="asset_id"/>
+                    <field name="processor_type"/>
+                    <field name="memory_size"/>
+                    <field name="storage_size"/>
+                    <field name="graphics_card"/>
+                    <field name="network_adapter"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Hardware Graph View -->
+        <record id="view_hardware_graph" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.graph</field>
+            <field name="model">parc_informatique.hardware</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <!-- Define the graph view content -->
+                    <field name="asset_id"/>
+                    <field name="processor_type"/>
+                    <field name="memory_size"/>
+                    <field name="storage_size"/>
+                    <field name="graphics_card"/>
+                    <field name="network_adapter"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Hardware Search View -->
+        <record id="view_hardware_search" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.search</field>
+            <field name="model">parc_informatique.hardware</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Define search criteria for hardware -->
+                    <field name="name"/>
+                    <field name="processor_type"/>
+                    <field name="memory_size"/>
+                    <field name="storage_size"/>
+                    <field name="graphics_card"/>
+                    <field name="network_adapter"/>
+                </search>
             </field>
         </record>
     </data>

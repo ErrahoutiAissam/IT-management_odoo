@@ -1,33 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- User Action Window -->
     <record id='parc_informatique_user_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique User</field>
         <field name="res_model">parc_informatique.user</field>
-        <field name="view_mode">form</field>
+        <field name="view_mode">tree,form,pivot</field>
     </record>
 
-    <menuitem name="parc_informatique" id="parc_informatique_main_menu"/> 
-    <menuitem name="user" id="parc_informatique_user_menu" parent="parc_informatique_main_menu" action="parc_informatique_user_action_form"/> 
+    <!-- User Menu Items -->
+    <menuitem name="user" id="parc_informatique_user_menu" parent="parc_informatique_main_menu" action="parc_informatique_user_action_form"/>
 
     <data>
-<record id="view_user_form" model="ir.ui.view">
-    <field name="name">parc_informatique.user.form</field>
-    <field name="model">parc_informatique.user</field>
-    <field name="arch" type="xml">
-        <form>
-            <group>
-                <field name="company_id" invisible="1"/>
-                <field name="department_id"/> 
-                <field name="name" widget="many2one" options="{'no_create_edit': True}" domain="[('department_id', '=', department_id)]"/>  
-                <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
-            </group>
-        </form>
-    </field>
-</record>
+        <!-- User Form View -->
+        <record id="view_user_form" model="ir.ui.view">
+            <field name="name">parc_informatique.user.form</field>
+            <field name="model">parc_informatique.user</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="department_id"/>
+                        <field name="name" widget="many2one" options="{'no_create_edit': True}" domain="[('department_id', '=', department_id)]"/>
+                        <field name="assigned_assets" widget="many2many_tags" options="{'no_create_edit': True}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
 
+        <!-- User Tree View -->
+        <record id="view_user_tree" model="ir.ui.view">
+            <field name="name">parc_informatique.user.tree</field>
+            <field name="model">parc_informatique.user</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="assigned_assets" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
 
+   
+        <!-- User Pivot View -->
+        <record id="view_user_pivot" model="ir.ui.view">
+            <field name="name">parc_informatique.user.pivot</field>
+            <field name="model">parc_informatique.user</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="assigned_assets" widget="many2many_tags"/>
+                </pivot>
+            </field>
+        </record>
 
+        <!-- User Graph View -->
+     
 
-    
+        <!-- User Calendar View -->
+        <record id="view_user_calendar" model="ir.ui.view">
+            <field name="name">parc_informatique.user.calendar</field>
+            <field name="model">parc_informatique.user</field>
+            <field name="arch" type="xml">
+                <calendar>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="assigned_assets" widget="many2many_tags"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- User Search View -->
+        <record id="view_user_search" model="ir.ui.view">
+            <field name="name">parc_informatique.user.search</field>
+            <field name="model">parc_informatique.user</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="assigned_assets"/>
+                </search>
+            </field>
+        </record>
     </data>
 </odoo>

@@ -4,7 +4,7 @@
     <record id='parc_informatique_software_action_form' model='ir.actions.act_window'>
         <field name="name">parc_informatique Software</field>
         <field name="res_model">parc_informatique.software</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot,graph,search</field>
     </record>
 
     <!-- Software Menu Items -->
@@ -50,6 +50,54 @@
                     <field name="install_date"/>
                     <field name="software_type"/>
                 </tree>
+            </field>
+        </record>
+
+   
+
+        <!-- Software Pivot View -->
+        <record id="view_software_pivot" model="ir.ui.view">
+            <field name="name">parc_informatique.software.pivot</field>
+            <field name="model">parc_informatique.software</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <!-- Define the pivot view content -->
+                    <field name="asset_id"/>
+                    <field name="version"/>
+                    <field name="install_date"/>
+                    <field name="software_type"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Software Graph View -->
+        <record id="view_software_graph" model="ir.ui.view">
+            <field name="name">parc_informatique.software.graph</field>
+            <field name="model">parc_informatique.software</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <!-- Define the graph view content -->
+                    <field name="asset_id"/>
+                    <field name="version"/>
+                    <field name="install_date"/>
+                    <field name="software_type"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Software Search View -->
+        <record id="view_software_search" model="ir.ui.view">
+            <field name="name">parc_informatique.software.search</field>
+            <field name="model">parc_informatique.software</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Define search criteria for software -->
+                    <field name="asset_id"/>
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="install_date"/>
+                    <field name="software_type"/>
+                </search>
             </field>
         </record>
     </data>
