@@ -13,3 +13,4 @@ class Hardware(Asset):
     network_adapter = fields.Char(string='Network Adapter')
     additional_hardware_info = fields.Text(string='Additional Hardware Information')
     
+    
