@@ -19,7 +19,7 @@
             <group>
                 <!-- Replace the original asset_id field with a Many2one field -->
                 <field name="asset_id" options="{'no_create_edit': True}" widget="many2one"/> 
-                <field name="name"/>
+                <!-- <field name="name"/> -->
                 <field name="version"/>
                 <field name="license_key"/>
                 <field name="install_date"/>

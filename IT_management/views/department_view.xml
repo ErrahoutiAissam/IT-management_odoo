@@ -23,7 +23,7 @@
                         <field name="name"/>
                         <field name="description"/>
                         <!-- Add other department-specific fields to display -->
-                        <field name="users" widget="many2many_tags"/>
+                        <!-- <field name="users" widget="many2many_tags"/> -->
                         <field name="assets" widget="many2many_tags"/>
                     </group>
                 </form>
@@ -39,7 +39,7 @@
                     <!-- Define the columns you want to display in the department tree view -->
                     <field name="name"/>
                     <field name="description"/>
-                    <field name="users"/>
+                    <!-- <field name="users"/> -->
                     <field name="assets" widget="many2many_tags"/>
                 </tree>
             </field>
@@ -54,7 +54,7 @@
                     <!-- Define search criteria for departments -->
                     <field name="name"/>
                     <field name="description"/>
-                    <field name="users"/>
+                    <!-- <field name="users"/> -->
                     <field name="assets"/>
                 </search>
             </field>

@@ -22,8 +22,8 @@
                         <!-- Define the fields you want to display in the inventory form view -->
                         <field name="name"/>
                         <field name="total_assets"/>
-                        <field name="total_hardware"/>
-                        <field name="total_software"/>
+                        <!-- <field name="total_hardware"/>
+                        <field name="total_software"/> -->
                         <!-- Add other inventory-specific fields to display -->
                         <field name="assets" widget="many2many_tags"/>
                     </group>
@@ -40,8 +40,8 @@
                     <!-- Define the columns you want to display in the inventory tree view -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <field name="total_hardware"/>
-                    <field name="total_software"/>
+                    <!-- <field name="total_hardware"/>
+                    <field name="total_software"/> -->
                     <field name="assets" widget="many2many_tags"/>
                 </tree>
             </field>
