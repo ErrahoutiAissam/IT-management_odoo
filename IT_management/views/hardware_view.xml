@@ -22,24 +22,30 @@
     <menuitem name="hardware" id="parc_informatique_hardware_menu" parent="parc_informatique_main_menu" action="parc_informatique_hardware_action_form"/> 
 
     <data>
-<record id="view_hardware_form" model="ir.ui.view">
-    <field name="name">parc_informatique.hardware.form</field>
-    <field name="model">parc_informatique.hardware</field>
-    <field name="arch" type="xml">
-        <form>
-            <group>
-                <field name="asset_id" options="{'no_create_edit': True}" widget="many2one"/> 
-                <!-- <field name="name"/> -->
-                <field name="processor_type"/>
-                <field name="memory_size"/>
-                <field name="storage_size"/>
-                <field name="graphics_card"/>
-                <field name="network_adapter"/>
-                <field name="additional_hardware_info"/>
-            </group>
-        </form>
-    </field>
-</record>
+        <record id="parc_informatique_hardware_menu" model="ir.ui.menu">
+            <field name="name">Hardware</field>
+            <field name="parent_id" ref="parc_informatique_main_menu" />
+            <field name="action" ref="parc_informatique_hardware_action_form" />
+        </record>
+
+        <record id="view_hardware_form" model="ir.ui.view">
+            <field name="name">parc_informatique.hardware.form</field>
+            <field name="model">parc_informatique.hardware</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="asset_id" options="{'no_create_edit': True}" widget="many2one"/> 
+                        <!-- <field name="name"/> -->
+                        <field name="processor_type"/>
+                        <field name="memory_size"/>
+                        <field name="storage_size"/>
+                        <field name="graphics_card"/>
+                        <field name="network_adapter"/>
+                        <field name="additional_hardware_info"/>
+                    </group>
+                </form>
+            </field>
+        </record>
 
 
         <!-- Hardware Tree View -->

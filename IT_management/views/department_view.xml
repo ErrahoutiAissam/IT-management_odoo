@@ -12,7 +12,14 @@
 <menuitem name="department" id="parc_informatique_department_menu" parent="parc_informatique_main_menu" action="parc_informatique_department_action_form"/>
 
     <data>
+        <!-- Maintenance Form View -->
+          <record id="parc_informatique_department_menu" model="ir.ui.menu">
+            <field name="name">Departement</field>
+            <field name="parent_id" ref="parc_informatique_main_menu" />
+            <field name="action" ref="parc_informatique_department_action_form" />
+        </record>
         <!-- Department Form View -->
+
         <record id="view_department_form" model="ir.ui.view">
             <field name="name">parc_informatique.department.form</field>
             <field name="model">parc_informatique.department</field>

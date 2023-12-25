@@ -8,9 +8,13 @@
     </record>
 
     <!-- Asset Menu Items -->
-    <menuitem name="asset" id="parc_informatique_asset_menu" parent="parc_informatique_main_menu" action="parc_informatique_asset_action_form"/>
-
     <data>
+        <record id="parc_informatique_asset_menu" model="ir.ui.menu">
+            <field name="name">Asset</field>
+            <field name="parent_id" ref="parc_informatique_main_menu" />
+            <field name="action" ref="parc_informatique_asset_action_form" />
+        </record>
+
         <!-- Asset Form View -->
         <record id="view_asset_form" model="ir.ui.view">
             <field name="name">parc_informatique.asset.form</field>

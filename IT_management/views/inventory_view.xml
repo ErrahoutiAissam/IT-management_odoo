@@ -12,6 +12,11 @@
     <menuitem name="inventory" id="parc_informatique_inventory_menu" parent="parc_informatique_main_menu" action="parc_informatique_inventory_action_form"/>
 
     <data>
+        <record id="parc_informatique_inventory_menu" model="ir.ui.menu">
+            <field name="name">Inventory</field>
+            <field name="parent_id" ref="parc_informatique_main_menu" />
+            <field name="action" ref="parc_informatique_inventory_action_form" />
+        </record>
         <!-- Inventory Form View -->
         <record id="view_inventory_form" model="ir.ui.view">
             <field name="name">parc_informatique.inventory.form</field>
@@ -22,10 +27,14 @@
                         <!-- Define the fields you want to display in the inventory form view -->
                         <field name="name"/>
                         <field name="total_assets"/>
-                        <!-- <field name="total_hardware"/>
-                        <field name="total_software"/> -->
+                        <field name="assets" options="{'no_create_edit': True}">
+                            <tree>
+                                <!-- Define the columns you want to display in the inventory tree view -->
+                                <field name="name"/>
+                                <!-- Add other asset-specific fields to display -->
+                            </tree>
+                        </field>
                         <!-- Add other inventory-specific fields to display -->
-                        <field name="assets" widget="many2many_tags"/>
                     </group>
                 </form>
             </field>
@@ -40,8 +49,6 @@
                     <!-- Define the columns you want to display in the inventory tree view -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <!-- <field name="total_hardware"/>
-                    <field name="total_software"/> -->
                     <field name="assets" widget="many2many_tags"/>
                 </tree>
             </field>
@@ -56,13 +63,10 @@
                     <!-- Define the kanban card content -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <field name="total_hardware"/>
-                    <field name="total_software"/>
                     <field name="assets" widget="many2many_tags"/>
                 </kanban>
             </field>
         </record>
-
 
         <!-- Inventory Pivot View -->
         <record id="view_inventory_pivot" model="ir.ui.view">
@@ -74,8 +78,6 @@
                     <!-- Define the pivot view content -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <field name="total_hardware"/>
-                    <field name="total_software"/>
                     <field name="assets" widget="many2many_tags"/>
                 </pivot>
             </field>
@@ -91,8 +93,6 @@
                     <!-- Define the graph view content -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <field name="total_hardware"/>
-                    <field name="total_software"/>
                     <field name="assets" widget="many2many_tags"/>
                 </graph>
             </field>
@@ -107,8 +107,6 @@
                     <!-- Define search criteria for inventory -->
                     <field name="name"/>
                     <field name="total_assets"/>
-                    <field name="total_hardware"/>
-                    <field name="total_software"/>
                     <field name="assets"/>
                 </search>
             </field>

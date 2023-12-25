@@ -12,6 +12,12 @@
 
     <data>
         <!-- Maintenance Form View -->
+          <record id="parc_informatique_maintenance_menu" model="ir.ui.menu">
+            <field name="name">Maintenance</field>
+            <field name="parent_id" ref="parc_informatique_main_menu" />
+            <field name="action" ref="parc_informatique_maintenance_action_form" />
+        </record>
+
         <record id="view_maintenance_form" model="ir.ui.view">
             <field name="name">parc_informatique.maintenance.form</field>
             <field name="model">parc_informatique.maintenance</field>
