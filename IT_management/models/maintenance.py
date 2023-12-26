@@ -10,12 +10,11 @@ class Maintenance(models.Model):
         ('predictive', 'Predictive Maintenance'),
         ('emergency', 'Emergency Maintenance'),
         ('modernization', 'Modernization'),
-        ('security', 'Security Updates'),
         ('testing_validation', 'Testing and Validation'),
         ('other', 'Other'),
     ], string='Maintenance Type') 
 
+
     description = fields.Text(string='Description')
     cost = fields.Float(string='Cost')
-    hardware_id = fields.Many2one('parc_informatique.hardware', string='Hardware')
-    software_id = fields.Many2one('parc_informatique.software', string='Software')
+    asset_id = fields.Many2one('parc_informatique.asset', string='Asset')

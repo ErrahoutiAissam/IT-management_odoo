@@ -6,11 +6,10 @@ _logger = logging.getLogger(__name__)
 class User(models.Model):
     _name = 'parc_informatique.user'
     _description = 'IT User Model'
-    _inherit = ['hr.employee']
+    _inherit = ['hr.employee']  
 
     # Your additional fields for the IT User Model
-    assigned_hardware = fields.One2many('parc_informatique.hardware', 'current_user', string='Assigned Hardware')
-    assigned_software = fields.Many2many('parc_informatique.software', 'parc_informatique_user_software_rel', 'user_id', 'software_id', string='Assigned Software')
+    assigned_assets = fields.One2many('parc_informatique.asset', 'current_user', string='Assigned Assets')
     category_ids = fields.Many2many(
         'parc_informatique.category',
         'parc_informatique_user_category_rel',

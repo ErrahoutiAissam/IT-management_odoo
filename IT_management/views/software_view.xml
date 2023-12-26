@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Software Action Window -->
     <record id='parc_informatique_software_action_form' model='ir.actions.act_window'>
@@ -10,30 +11,27 @@
     <menuitem name="software" id="parc_informatique_software_menu" parent="parc_informatique_main_menu" action="parc_informatique_software_action_form"/>
 
     <data>
-      <record id="parc_informatique_software_menu" model="ir.ui.menu">
+
+        <record id="parc_informatique_software_menu" model="ir.ui.menu">
             <field name="name">Software</field>
             <field name="parent_id" ref="parc_informatique_main_menu" />
             <field name="action" ref="parc_informatique_software_action_form" />
         </record>
-        
         <record id="view_software_form" model="ir.ui.view">
             <field name="name">parc_informatique.software.form</field>
             <field name="model">parc_informatique.software</field>
             <field name="arch" type="xml">
                 <form>
                     <group>
+                        <!-- Replace the original asset_id field with a Many2one field -->
+                        <field name="asset_id" options="{'no_create_edit': True}" widget="many2one"/> 
                         <field name="name"/>
-                        <field name="manufacturer"/>
-                        <field name="purchase_date"/>
-                        <field name="specifications"/>
-                        <field name="current_users" widget="many2many_tags"/>
-                        <field name="maintenance_history"/>
-                        <!-- <field name="inventory"/> -->
-                        <field name="license_key"/>
                         <field name="version"/>
+                        <field name="license_key"/>
+                        <field name="install_date"/>
                         <field name="software_type"/>
                         <field name="additional_software_info"/>
-                        <field name="install_date"/>
+                        <!-- Add other software-specific fields to display -->
                     </group>
                 </form>
             </field>
@@ -45,6 +43,7 @@
             <field name="model">parc_informatique.software</field>
             <field name="arch" type="xml">
                 <tree>
+                    <!-- Define the columns you want to display in the software tree view -->
                     <field name="name"/>
                     <field name="version"/>
                     <field name="license_key"/>
@@ -54,12 +53,16 @@
             </field>
         </record>
 
+   
+
         <!-- Software Pivot View -->
         <record id="view_software_pivot" model="ir.ui.view">
             <field name="name">parc_informatique.software.pivot</field>
             <field name="model">parc_informatique.software</field>
             <field name="arch" type="xml">
                 <pivot>
+                    <!-- Define the pivot view content -->
+                    <field name="asset_id"/>
                     <field name="version"/>
                     <field name="install_date"/>
                     <field name="software_type"/>
@@ -73,6 +76,8 @@
             <field name="model">parc_informatique.software</field>
             <field name="arch" type="xml">
                 <graph>
+                    <!-- Define the graph view content -->
+                    <field name="asset_id"/>
                     <field name="version"/>
                     <field name="install_date"/>
                     <field name="software_type"/>
@@ -86,6 +91,8 @@
             <field name="model">parc_informatique.software</field>
             <field name="arch" type="xml">
                 <search>
+                    <!-- Define search criteria for software -->
+                    <field name="asset_id"/>
                     <field name="name"/>
                     <field name="version"/>
                     <field name="install_date"/>
